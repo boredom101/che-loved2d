@@ -13,13 +13,13 @@ RUN sudo apt-get update -qqy && \
   net-tools \
   blackbox \
   rxvt-unicode \
-  xfonts-terminus && \
+  xfonts-terminus
 
-RUN sudo mkdir -p /opt/noVNC/utils/websockify && \
-    wget -qO- "http://github.com/kanaka/noVNC/tarball/master" | sudo tar -zx --strip-components=1 -C /opt/noVNC && \
-    wget -qO- "https://github.com/kanaka/websockify/tarball/master" | sudo tar -zx --strip-components=1 -C /opt/noVNC/utils/websockify && \
-    sudo mkdir -p /etc/X11/blackbox && \
-    echo "[begin] (Blackbox) \n [exec] (Terminal)     {urxvt -fn "xft:Terminus:size=14"} \n \
+RUN sudo mkdir -p /opt/noVNC/utils/websockify
+RUN wget -qO- "http://github.com/kanaka/noVNC/tarball/master" | sudo tar -zx --strip-components=1 -C /opt/noVNC
+RUN wget -qO- "https://github.com/kanaka/websockify/tarball/master" | sudo tar -zx --strip-components=1 -C /opt/noVNC/utils/websockify
+RUN sudo mkdir -p /etc/X11/blackbox
+RUN echo "[begin] (Blackbox) \n [exec] (Terminal)     {urxvt -fn "xft:Terminus:size=14"} \n \
     [exec] (Chrome)     {/opt/google/chrome/google-chrome} \n \
     [end]" | sudo tee -a /etc/X11/blackbox/blackbox-menu
 
@@ -38,8 +38,8 @@ M2_HOME=/home/user/apache-maven-$MAVEN_VERSION
 
 ENV PATH=$JAVA_HOME/bin:$M2_HOME/bin:$PATH
 
-RUN mkdir /home/user/cbuild /home/user/tomcat8 /home/user/apache-maven-$MAVEN_VERSION && \
-  wget \
+RUN mkdir /home/user/cbuild /home/user/tomcat8 /home/user/apache-maven-$MAVEN_VERSION
+RUN wget \
   --no-cookies \
   --no-check-certificate \
   --header "Cookie: oraclelicense=accept-securebackup-cookie" \
