@@ -1,8 +1,8 @@
 FROM eclipse/ubuntu_jre
 
-RUN sudo apt-get update && apt-get install -y mesa-utils
+RUN sudo apt-get update && sudo apt-get install -y mesa-utils
 RUN sudo add-apt-repository ppa:bartbes/love-stable
-RUN sudo apt-get update && apt-get install -y love=0.10.2ppa1
+RUN sudo apt-get update && sudo apt-get install -y love=0.10.2ppa1
 
 RUN sudo apt-get update -qqy && \
   sudo apt-get -qqy install \
